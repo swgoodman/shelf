@@ -58,14 +58,14 @@ RSpec.describe User, :type => :model do
   end
 
   it "has many libraries" do
-    first_library = Library.create(:user_id => user.id, :name => library_records.name, :category => library_records.category)
-    second_library = Library.create(:user_id => user.id, :name => library_books.name, :category => library_books.category)
-    expect(user.libraries.first).to eq(first_library)
-    expect(user.libraries.last).to eq(second_library)
+    first_library = Library.create(:user_id => user.id, :name => library_books.name, :category => library_books.category)
+    second_library = Library.create(:user_id => user.id, :name => library_records.name, :category => library_records.category)
+    expect(user.libraries).to include(first_library, second_library)
   end
 
   it "has many books through libraries" do
-    user.books << [mastery, emerson]
+    library_books.books << [mastery, emerson]
+    user.libraries << library_books
     expect(user.books.first).to eq(mastery)
     expect(user.books.last).to eq(emerson)
   end
