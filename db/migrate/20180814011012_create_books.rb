@@ -8,7 +8,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :status
       t.string :note
       t.string :category
-      t.timestamp :date_created, DEFAULT: Time.now
+      t.datetime :created_on
     end
   end
 end

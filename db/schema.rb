@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_005930) do
+ActiveRecord::Schema.define(version: 2018_08_14_011012) do
 
   create_table "books", force: :cascade do |t|
     t.integer "library_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_005930) do
     t.string "status"
     t.string "note"
     t.string "category"
-    t.datetime "date_created"
+    t.datetime "created_on"
   end
 
   create_table "libraries", force: :cascade do |t|
