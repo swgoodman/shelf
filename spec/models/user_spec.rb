@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, :type => :model do
   let(:user) {
     User.create(
-      :name => "Mindy",
+      :username => "Mindy",
       :email => "mindy@gmail.com",
       :password => "password",
     )
@@ -54,7 +54,7 @@ RSpec.describe User, :type => :model do
   end
 
   it "is not valid without a password" do
-    expect(User.new(name: "Name")).not_to be_valid
+    expect(User.new(username: "Name")).not_to be_valid
   end
 
   it "has many libraries" do
